@@ -1,0 +1,36 @@
+<style type="text/css">
+	.center_3 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+    height: : 75%;
+     
+  }
+</style>
+
+<div class="row center_3" *ngIf="photoData !== null"> 
+      <a href="#" class="d-block mb-4 h-100">
+            <img class="responsive center_3" src="{{photoData?.url}}" alt="">
+          </a>
+   </div>
+<form novalidate
+      (ngSubmit)="descriptionSubmit()"
+      #descriptionForm="ngForm">
+
+	<div class="form-group">
+		<label>Description</label>
+		<textarea class="form-control"
+		       name="description"
+		       [ngModel]="photoData?.description"
+		       (ngModelChange)="photoData.description = $event"
+		       required
+				rows="5"		
+		       ></textarea>
+	</div>
+
+	<button type="submit"
+	        class="btn btn-primary">Submit
+	</button>
+</form>
+

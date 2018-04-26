@@ -1,0 +1,76 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style type="text/css">
+  /* #login {
+width: 250%;
+background: linear-gradient(#22abe9 5%, #36caf0 100%);
+border: 1px solid #0F799E;
+font-size: 20px;
+margin-left: 10px;
+margin-top: 15px;
+padding: 8px;
+font-weight: bold;
+cursor: pointer;
+color: white;
+text-shadow: 0px 1px 0px #13506D;
+} */
+
+  #login:hover {
+    background: linear-gradient(darkslateblue 5%, #22abe9 95%);
+  }
+
+  .center_1 {
+    margin: auto;
+    width: 90%;
+    border: 3px solid black;
+    padding: 10px;
+  }
+
+  .center_2 {
+    margin: auto;
+    width: 100%;
+    border: 2px solid darkslateblue;
+    padding: 15px;
+  }
+
+  .center_3 {
+    display: block;
+    margin: auto;
+    width: 90%;
+  }
+
+  .rcorners2 {
+    border-radius: 25px;
+  }
+
+  .rcorners3 {
+    border-radius: 20px 20px 0px 0px;
+  }
+</style>
+<div class="row rcorners2" style="margin: auto">
+  <div *ngFor="let photo of photos" class="col-md-2 col-xs-3 col-lg-2" style="margin: 15px;height: 250px;">
+    <div class="center_2 rcorners2">
+      <div class="row center_3" style="margin-bottom: 10px">
+        <a href="#">
+          <img class="rcorners3" src="{{photo.url}}" alt="">
+        </a>
+      </div>
+      <div class="row center_3">
+        <button type="button" (click)="deleteFavorite(photo.id)"
+          class="btn btn-default btn-sm" id=login>
+          <span class="glyphicon glyphicon-trash"></span> Delete
+        </button>
+        <button type="button" (click)="showDescription = !showDescription" (click)="dataBind(photo)"
+          class="btn btn-default btn-sm" id=login>
+          <span class="glyphicon glyphicon-pencil"></span> Description
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<app-modal [(visible)]="showDescription" #description_modal>
+<app-description (descriptionCloseEvent)="description_modal.close()" [photoData]="img"></app-description>
+</app-modal>
