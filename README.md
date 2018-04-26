@@ -1,6 +1,10 @@
-# EventManagerFront
+# Flickr Image Store App Front
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.0.
+
+## Description
+
+This app shows the random images got from Flickr.com using random keywords. User can mark favourite images and view the later using this app.
 
 ## Development server
 
